@@ -68,4 +68,3 @@ PENJELASAN SISTEM SEKOLAH
 6.	RAPOR SISWA : Rapor siswa di input oleh guru, saat penginputan nilai memilih tingkatan kelas dan semester 
 	VIEW
 	CREATE
-	UPDATE
