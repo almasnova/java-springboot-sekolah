@@ -9,6 +9,7 @@ import org.test.sekolah.entity.NilaiRapor;
 import org.test.sekolah.entity.Siswa;
 import org.test.sekolah.exception.DataNotFoundException;
 import org.test.sekolah.repository.HistoryKelasSiswaRepository;
+import org.test.sekolah.repository.NilaiRaporRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,9 @@ public class RaporServiceImpl implements RaporService {
 
     @Autowired
     private HistoryKelasSiswaRepository historyKelasSiswaRepository;
+
+    @Autowired
+    private NilaiRaporRepository nilaiRaporRepository;
 
     @Autowired
     private SiswaService siswaService;
@@ -62,24 +66,24 @@ public class RaporServiceImpl implements RaporService {
         HistoryKelasSiswa his = history.get();
 
         List<NilaiRapor> nilaiList = new ArrayList<>();
+//        his.setNilaiRapors(new ArrayList<>());
         for (RequestCreateNilaiRaporDTO req : dto.getNilai()) {
+            MataPelajaran mataPelajaran = mataPelajaranService.findById(req.getMataPelajaranId());
             NilaiRapor nilai = new NilaiRapor();
             nilai.setId(0);
             nilai.setSemester(dto.getSemester());
-            nilai.setMataPelajaran(mataPelajaranService.findById(req.getMataPelajaranId()));
+            nilai.setMataPelajaran(mataPelajaran);
             nilai.setNilai(req.getNilai());
             nilai.setHistory(his);
+            System.out.println(dto.getSemester()+" "+mataPelajaran+" "+his);
             nilaiList.add(nilai);
+//            nilaiRaporRepository.save(nilai);
         }
+//        System.out.println(nilaiList);
         his.setNilaiRapors(nilaiList);
         his = historyKelasSiswaRepository.save(his);
 
-        return new ResponseRaporSiswaDTO(siswa, his.getNilaiRapors());
-    }
-
-    @Override
-    public ResponseRaporSiswaDTO updateRapor(Long siswaId, RequestCreateRaporSiswaDTO dto) {
-        return null;
+        return new ResponseRaporSiswaDTO(siswa, nilaiList);
     }
 
 }

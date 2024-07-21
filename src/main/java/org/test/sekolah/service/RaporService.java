@@ -11,6 +11,4 @@ public interface RaporService {
     ResponseRaporSiswaDTO getBySiswaId(Long siswaId, RequestRaporSiswaDTO dto);
 
     ResponseRaporSiswaDTO createRapor(Long siswaId, RequestCreateRaporSiswaDTO dto);
-
-    ResponseRaporSiswaDTO updateRapor(Long siswaId, RequestCreateRaporSiswaDTO dto);
 }

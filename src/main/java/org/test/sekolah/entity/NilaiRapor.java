@@ -6,11 +6,9 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity
 @Table(name = "nilai_rapor")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Entity
 public class NilaiRapor {
 
     @Id
@@ -28,6 +26,6 @@ public class NilaiRapor {
     private double nilai;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "history_kelas_siswa_id")
+    @JoinColumn(name = "history_kelas_siswa_id", nullable = false)
     private HistoryKelasSiswa history;
 }

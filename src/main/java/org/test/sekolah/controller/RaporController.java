@@ -56,37 +56,15 @@ public class RaporController {
         } catch (AuthenticationException ae) {
             status = HttpStatus.UNAUTHORIZED;
             response.setFail(ae.getMessage());
-        } catch (DataEmptyOrNullException | DataNotValidException | DataNotFoundException de) {
-            status = HttpStatus.BAD_REQUEST;
-            response.setFail(de.getMessage());
-        } catch (Exception e) {
-            status = HttpStatus.INTERNAL_SERVER_ERROR;
-            response.setFail(e.getMessage());
-        }
-        return ResponseEntity.status(status).body(response);
-    }
-
-    @PutMapping("/rapor/{siswaId}")
-    public ResponseEntity<ResponseMain> updateRapor(@PathVariable("siswaId") Long siswaId,
-                                                    @Valid @RequestBody RequestCreateRaporSiswaDTO dto) {
-        ResponseMain response = new ResponseMain();
-        HttpStatus status;
-        try {
-            ResponseRaporSiswaDTO resp = raporService.updateRapor(siswaId, dto);
-            status = HttpStatus.OK;
-            response.setSuccess(resp);
-            response.setMessage("Success");
-        } catch (AuthenticationException ae) {
             ae.printStackTrace();
-            status = HttpStatus.UNAUTHORIZED;
-            response.setFail(ae.getMessage());
         } catch (DataEmptyOrNullException | DataNotValidException | DataNotFoundException de) {
-            de.printStackTrace();
             status = HttpStatus.BAD_REQUEST;
             response.setFail(de.getMessage());
+            de.printStackTrace();
         } catch (Exception e) {
             status = HttpStatus.INTERNAL_SERVER_ERROR;
             response.setFail(e.getMessage());
+            e.printStackTrace();
         }
         return ResponseEntity.status(status).body(response);
     }

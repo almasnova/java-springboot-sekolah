@@ -1,18 +1,19 @@
 package org.test.sekolah.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "history_kelas_siswa")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Entity
+@Table(name = "history_kelas_siswa")
 public class HistoryKelasSiswa {
 
     @Id
