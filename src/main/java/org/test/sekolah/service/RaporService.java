@@ -10,5 +10,5 @@ import java.util.List;
 public interface RaporService {
     ResponseRaporSiswaDTO getBySiswaId(Long siswaId, RequestRaporSiswaDTO dto);
 
-    ResponseRaporSiswaDTO createRapor(Long siswaId, RequestCreateRaporSiswaDTO dto);
+    void createRapor(Long siswaId, RequestCreateRaporSiswaDTO dto);
 }

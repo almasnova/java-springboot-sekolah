@@ -16,7 +16,7 @@ public class NilaiRapor {
     private long id;
 
     @Column(name = "semester")
-    private int semester;
+    private long semester;
 
     @OneToOne
     @JoinColumn(name = "mata_pelajaran_id", nullable = false)

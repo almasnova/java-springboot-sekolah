@@ -17,8 +17,8 @@ public interface HistoryKelasSiswaRepository extends JpaRepository<HistoryKelasS
             " on history_kelas_siswa.kelas_id=kelas.id where" +
             " history_kelas_siswa.siswa_id = :siswaId and kelas.tingkat = :tingkat limit 1")
     Optional<HistoryKelasSiswa> getByTingkatKelas(@Param("siswaId") long siswaId,
-                                                  @Param("tingkat") int tingkatKelas);
+                                                  @Param("tingkat") long tingkatKelas);
 
-    @Query(nativeQuery = true, value = "select h from HistoryKelasSiswa h where h.siswaId = :siswaId")
+    @Query(nativeQuery = true, value = "select * from history_kelas_siswa where siswa_id = :siswaId")
     List<HistoryKelasSiswa> getListHistoryBySiswaId(@Param("siswaId") long siswaId);
 }

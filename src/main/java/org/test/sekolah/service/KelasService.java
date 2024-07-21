@@ -9,9 +9,9 @@ public interface KelasService {
 
     Kelas getById(long id);
 
-    void createKelas(int tingkatKelas, String kelasName);
+    void createKelas(long tingkatKelas, String kelasName);
 
-    void updateKelas(long id, int tingkatKelas, String kelasName);
+    void updateKelas(long id, long tingkatKelas, String kelasName);
 
     void deleteKelas(long id);
 }

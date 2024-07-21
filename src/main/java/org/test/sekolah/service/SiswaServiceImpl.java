@@ -12,6 +12,7 @@ import org.test.sekolah.repository.HistoryKelasSiswaRepository;
 import org.test.sekolah.repository.SiswaRepository;
 import org.test.sekolah.util.Constants;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -101,16 +102,30 @@ public class SiswaServiceImpl implements SiswaService {
     }
 
     @Override
-    public Long getKelasIdByHistoryByIdAndTingkatKelas(Long siswaId, int kelas) {
+    public Long getKelasIdByHistoryByIdAndTingkatKelas(Long siswaId, long kelas) {
         Long kelasId = siswaRepository.getKelasIdByHistoryByIdAndTingkatKelas(siswaId, kelas);
         if (kelasId == null) throw new DataNotFoundException("Kelas not found");
         return kelasId;
     }
 
     @Override
-    public List<NilaiRapor> getNilaiRaporByKelasAndSemester(long id, long kelasId, int semester) {
+    public List<NilaiRaporInterface> getNilaiRaporByKelasAndSemester(long id, long kelasId, long semester) {
         return siswaRepository.getNilaiRaporByKelasIdAndSemester(id, kelasId, semester);
     }
+
+//    @Override
+//    public List<NilaiRapor> getNilaiRaporByKelasAndSemester(long id, long kelasId, long semester) {
+//        List<NilaiRaporInterface> list = siswaRepository.getNilaiRaporByKelasIdAndSemester(id, kelasId, semester);
+//
+//        List<NilaiRapor> listData = new ArrayList<>();
+//        for(NilaiRaporInterface in:list) {
+//            NilaiRapor nilai = new NilaiRapor();
+//            nilai.setId(in.getId());
+//            nilai.setSemester(in.getId());
+//            nilai.set(in.getId());
+//            nilai.setId(in.getId());
+//        }
+//    }
 
 //    @Override
 //    public ResponseSiswaDTO createHistoryKelas(Long id, RequestCreateHistoryKelasSiswaDTO dto) {

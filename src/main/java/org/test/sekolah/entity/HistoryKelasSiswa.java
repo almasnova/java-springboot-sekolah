@@ -18,7 +18,7 @@ public class HistoryKelasSiswa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @OneToOne
     @JoinColumn(name = "siswa_id", nullable = false)

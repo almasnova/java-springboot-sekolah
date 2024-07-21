@@ -28,7 +28,7 @@ public class KelasServiceImpl implements KelasService {
     }
 
     @Override
-    public void createKelas(int tingkatKelas, String kelasName) {
+    public void createKelas(long tingkatKelas, String kelasName) {
         Kelas kelas = new Kelas();
         kelas.setId(0L);
         kelas.setTingkat(tingkatKelas);
@@ -37,7 +37,7 @@ public class KelasServiceImpl implements KelasService {
     }
 
     @Override
-    public void updateKelas(long id, int tingkatKelas, String kelasName) {
+    public void updateKelas(long id, long tingkatKelas, String kelasName) {
         Kelas kelas = getById(id);
         kelas.setTingkat(tingkatKelas);
         kelas.setName(kelasName);

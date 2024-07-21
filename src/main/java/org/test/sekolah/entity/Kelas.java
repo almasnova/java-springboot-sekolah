@@ -19,7 +19,7 @@ public class Kelas {
     private Long id;
 
     @Column(name = "tingkat")
-    private int tingkat;
+    private long tingkat;
 
     @Column(name = "name")
     private String name;

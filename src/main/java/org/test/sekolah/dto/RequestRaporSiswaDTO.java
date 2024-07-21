@@ -8,10 +8,10 @@ import javax.validation.constraints.NotNull;
 public class RequestRaporSiswaDTO {
 
     @NotNull(message = "Field 'kelas' is required")
-    protected int kelas;
+    protected long kelas;
 
     @NotNull(message = "Field 'semester' is required")
-    protected int semester;
+    protected long semester;
 
 }
 

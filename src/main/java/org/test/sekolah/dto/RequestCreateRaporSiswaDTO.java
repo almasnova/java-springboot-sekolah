@@ -14,10 +14,10 @@ import java.util.List;
 public class RequestCreateRaporSiswaDTO {
 
     @NotNull(message = "Field 'kelas' is required")
-    private int kelas;
+    private long kelas;
 
     @NotNull(message = "Field 'semester' is required")
-    private int semester;
+    private long semester;
 
     @NotNull(message = "Field 'nilai' is required")
     @Size(min = 1, message = "Field 'nilai' must contains at least 1 element(s)")

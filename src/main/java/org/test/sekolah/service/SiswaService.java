@@ -21,9 +21,9 @@ public interface SiswaService {
 
     void deleteSiswa(Long id);
 
-    List<NilaiRapor> getNilaiRaporByKelasAndSemester(long id, long kelasId, int semester);
+    List<NilaiRaporInterface> getNilaiRaporByKelasAndSemester(long id, long kelasId, long semester);
 
 //    ResponseSiswaDTO createHistoryKelas(Long id, RequestCreateHistoryKelasSiswaDTO dto);
 
-    Long getKelasIdByHistoryByIdAndTingkatKelas(Long siswaId, int kelas);
+    Long getKelasIdByHistoryByIdAndTingkatKelas(Long siswaId, long kelas);
 }

@@ -36,9 +36,11 @@ public class RaporController {
         } catch (DataNotFoundException de) {
             status = HttpStatus.BAD_REQUEST;
             responseMain.setFail(de.getMessage());
+            de.printStackTrace();
         } catch (Exception e) {
             status = HttpStatus.INTERNAL_SERVER_ERROR;
             responseMain.setFail(e.getMessage());
+            e.printStackTrace();
         }
         return ResponseEntity.status(status).body(responseMain);
     }
@@ -49,10 +51,9 @@ public class RaporController {
         ResponseMain response = new ResponseMain();
         HttpStatus status;
         try {
-            ResponseRaporSiswaDTO resp = raporService.createRapor(siswaId, dto);
+            raporService.createRapor(siswaId, dto);
             status = HttpStatus.OK;
-            response.setSuccess(resp);
-            response.setMessage("Success");
+            response.setMessage("Success create Nilai rapor");
         } catch (AuthenticationException ae) {
             status = HttpStatus.UNAUTHORIZED;
             response.setFail(ae.getMessage());

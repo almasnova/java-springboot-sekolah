@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class ResponseMataPelajaranDTO {
     private Long id;
     private Long kelasId;
-    private int tingkatKelas;
+    private long tingkatKelas;
     private String kelasName;
     private Long guruId;
     private String guruName;
